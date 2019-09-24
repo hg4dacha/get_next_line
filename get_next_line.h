@@ -6,7 +6,7 @@
 /*   By: hgadacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/15 11:25:07 by hgadacha          #+#    #+#             */
-/*   Updated: 2019/09/10 15:52:43 by hgadacha         ###   ########.fr       */
+/*   Updated: 2019/09/24 16:45:36 by hgadacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #include <stdlib.h>
 #include <limits.h>
 
-#define BUFF_SIZE 100
+#define BUFF_SIZE 1000
 
 int	get_next_line(const int fd, char **line);
 
