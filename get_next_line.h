@@ -6,7 +6,7 @@
 /*   By: hgadacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/15 11:25:07 by hgadacha          #+#    #+#             */
-/*   Updated: 2019/09/24 16:45:36 by hgadacha         ###   ########.fr       */
+/*   Updated: 2019/09/25 19:30:05 by hgadacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
+#include "/Users/hgadacha/Projets-42/libft/libft.h"
 
-#define BUFF_SIZE 1000
+#define BUFF_SIZE 32
 
 int	get_next_line(const int fd, char **line);
 
