@@ -6,7 +6,7 @@
 /*   By: hgadacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/15 11:24:23 by hgadacha          #+#    #+#             */
-/*   Updated: 2019/09/25 19:30:13 by hgadacha         ###   ########.fr       */
+/*   Updated: 2019/09/26 18:51:02 by hgadacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,25 @@ int	get_next_line(const int fd, char **line)
 	int			i;
 	int			j;
 	static char	dest[BUFF_SIZE + 1];
-	char 		*stock;
+	char 		*stock = NULL;
 	
-	*line = (char*)malloc(sizeof(char*) * BUFF_SIZE);
+	*line = (char*)malloc(sizeof(char) * BUFF_SIZE);
 	while ((read_return	= read(fd, dest, BUFF_SIZE)) > 0)
 	{
 		dest[read_return] = '\0';
+		/*if (stock == NULL)
+			stock = dest;
+		else*/
 		stock = ft_strcat(stock, dest);
 		i = 0;
 		j = 0;
 		while (stock[i] != '\0' && stock[i] != '\n')
 		{
-			*line[j] = stock[i];
+			(*line)[j] = stock[i];
 			i++;
 			j++;
 		}
 	}
-	*line[j] = '\0';
-	printf("%s", *line);
+	//*line[j + 1] = '\0';
 	return 0;
 }
