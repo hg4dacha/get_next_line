@@ -6,7 +6,7 @@
 /*   By: hgadacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/15 11:24:23 by hgadacha          #+#    #+#             */
-/*   Updated: 2019/09/26 18:51:02 by hgadacha         ###   ########.fr       */
+/*   Updated: 2019/09/27 12:05:08 by hgadacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,23 @@ int	get_next_line(const int fd, char **line)
 	if (fd < 3 || fd > OPEN_MAX || line == NULL)
 		return (-1);
 
-	int			read_return;
-	int			i;
-	int			j;
-	static char	dest[BUFF_SIZE + 1];
-	char 		*stock = NULL;
+	int					read_return;
+	static int			i = 0;
+	static char			dest[BUFF_SIZE + 1] = "";
+	char 				stock[BUFF_SIZE + 1] = NULL;
 	
-	*line = (char*)malloc(sizeof(char) * BUFF_SIZE);
-	while ((read_return	= read(fd, dest, BUFF_SIZE)) > 0)
+	while ((read_return	= read(fd, stock, BUFF_SIZE)) > 0)
 	{
-		dest[read_return] = '\0';
-		/*if (stock == NULL)
-			stock = dest;
-		else*/
-		stock = ft_strcat(stock, dest);
-		i = 0;
-		j = 0;
-		while (stock[i] != '\0' && stock[i] != '\n')
+		stock[read_return] = '\0';
+		dest = ft_strcat(dest, stock);
+		while (dest[i] != '\0' && dest[i] != '\n')
 		{
-			(*line)[j] = stock[i];
 			i++;
-			j++;
 		}
 	}
 	//*line[j + 1] = '\0';
+	*line = (char*)malloc(sizeof(char) * (strlen(dest[i])));
+	ft_strncpy(&line, dest, i);
+	dest = ft_strsub(dest, i, )
 	return 0;
 }
