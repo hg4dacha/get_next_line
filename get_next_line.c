@@ -12,6 +12,16 @@
 
 #include "get_next_line.h"
 
+int	ft_strnlen(char *str, int i)
+{
+	int j;
+
+	j = 0;
+	while (str(j) != '\0' && str(j) < i)
+		j++;
+	return (j);
+}
+
 int	get_next_line(const int fd, char **line)
 {
 	if (fd < 3 || fd > OPEN_MAX || line == NULL)
@@ -22,7 +32,7 @@ int	get_next_line(const int fd, char **line)
 	static char			dest[BUFF_SIZE + 1] = "";
 	char 				stock[BUFF_SIZE + 1] = NULL;
 	
-	while ((read_return	= read(fd, stock, BUFF_SIZE)) > 0)
+	while ((read_return = read(fd, stock, BUFF_SIZE)) > 0)
 	{
 		stock[read_return] = '\0';
 		dest = ft_strcat(dest, stock);
@@ -32,7 +42,7 @@ int	get_next_line(const int fd, char **line)
 		}
 	}
 	//*line[j + 1] = '\0';
-	*line = (char*)malloc(sizeof(char) * (strlen(dest[i])));
+	*line = (char*)malloc(sizeof(char) * (strnlen(dest, i)));
 	ft_strncpy(&line, dest, i);
 	dest = ft_strsub(dest, i, )
 	return 0;
