@@ -6,18 +6,25 @@
 /*   By: hgadacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/15 11:24:23 by hgadacha          #+#    #+#             */
-/*   Updated: 2019/09/27 12:05:08 by hgadacha         ###   ########.fr       */
+/*   Updated: 2019/09/30 19:02:14 by hgadacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+int	ft_strlenn(char *str, int i)
+{
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
 
 int	ft_strnlen(char *str, int i)
 {
 	int j;
 
 	j = 0;
-	while (str(j) != '\0' && str(j) < i)
+	while (str[j] != '\0' && str[j] < i)
 		j++;
 	return (j);
 }
@@ -29,9 +36,8 @@ int	get_next_line(const int fd, char **line)
 
 	int					read_return;
 	static int			i = 0;
-	static char			dest[BUFF_SIZE + 1] = "";
-	char 				stock[BUFF_SIZE + 1] = NULL;
-	
+	static char			*dest = "";
+	char				stock[BUFF_SIZE + 1];
 	while ((read_return = read(fd, stock, BUFF_SIZE)) > 0)
 	{
 		stock[read_return] = '\0';
@@ -40,10 +46,13 @@ int	get_next_line(const int fd, char **line)
 		{
 			i++;
 		}
+		if (dest[i] == '\n')
+		{
+			*line = (char*)malloc(sizeof(char) * (strnlen(dest, i)));
+			ft_strncpy(*line, dest, i);
+			dest = ft_strsub(dest, i, ft_strnlen(dest, i));
+			return (1);
+		}
 	}
-	//*line[j + 1] = '\0';
-	*line = (char*)malloc(sizeof(char) * (strnlen(dest, i)));
-	ft_strncpy(&line, dest, i);
-	dest = ft_strsub(dest, i, )
-	return 0;
+	return (0);
 }
