@@ -6,7 +6,7 @@
 /*   By: hgadacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/15 11:24:23 by hgadacha          #+#    #+#             */
-/*   Updated: 2019/09/30 19:02:14 by hgadacha         ###   ########.fr       */
+/*   Updated: 2019/10/01 18:42:10 by hgadacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,17 @@ int	get_next_line(const int fd, char **line)
 	while ((read_return = read(fd, stock, BUFF_SIZE)) > 0)
 	{
 		stock[read_return] = '\0';
-		dest = ft_strcat(dest, stock);
+		dest = ft_strjoin(dest, stock);
 		while (dest[i] != '\0' && dest[i] != '\n')
 		{
 			i++;
-		}
-		if (dest[i] == '\n')
-		{
-			*line = (char*)malloc(sizeof(char) * (strnlen(dest, i)));
-			ft_strncpy(*line, dest, i);
-			dest = ft_strsub(dest, i, ft_strnlen(dest, i));
-			return (1);
+			if (dest[i] == '\n')
+			{
+				*line = (char*)malloc(sizeof(char) * (strnlen(dest, i)));
+				ft_strncpy(*line, dest, i);
+				dest = ft_strsub(dest, i, ft_strnlen(dest, i));
+				return (1);
+			}
 		}
 	}
 	return (0);
