@@ -25,7 +25,7 @@
 #include "/Users/hgadacha/Projets-42/libft_bis/libft.h"
 //#include "/home/gadacha/Projets-42/libft/libft.h"
 
-#define BUFF_SIZE 535
+#define BUFF_SIZE 32
 
 int	get_next_line(const int fd, char **line);
 

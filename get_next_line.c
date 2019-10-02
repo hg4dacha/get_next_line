@@ -19,12 +19,12 @@ int	ft_strlenn(char *str, int i)
 	return (i);
 }
 
-int	ft_strnlen(char *str, int i)
+int	ft_strnlen(char *str, char c)
 {
 	int j;
 
 	j = 0;
-	while (str[j] != '\0' && str[j] < i)
+	while (str[j] != '\0' && str[j] != c)
 		j++;
 	return (j);
 }
@@ -42,16 +42,18 @@ int	get_next_line(const int fd, char **line)
 	{
 		stock[read_return] = '\0';
 		dest = ft_strjoin(dest, stock);
-		while (dest[i] != '\0' && dest[i] != '\n')
+		while (dest[i] != '\0')
 		{
-			i++;
 			if (dest[i] == '\n')
 			{
-				*line = (char*)malloc(sizeof(char) * (strnlen(dest, i)));
+				*line = (char*)malloc(sizeof(char) * (ft_strnlen(dest, dest[i])));
 				ft_strncpy(*line, dest, i);
-				dest = ft_strsub(dest, i, ft_strnlen(dest, i));
+				printf(">>>>%s<<<<", *line);
+				dest = ft_strsub(dest, i, ft_strlenn(dest, i));
+				i++;
 				return (1);
 			}
+			i++;
 		}
 	}
 	return (0);

@@ -21,7 +21,7 @@ int	main(void)
 	while ((get_next_line(fd, &exemple)) == 1)
 	{
 		printf("%s", exemple);
-		getchar();
+		//getchar();
 	}
 	return 0;
 }
