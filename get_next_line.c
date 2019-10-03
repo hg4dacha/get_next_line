@@ -6,7 +6,7 @@
 /*   By: hgadacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/15 11:24:23 by hgadacha          #+#    #+#             */
-/*   Updated: 2019/10/01 18:42:10 by hgadacha         ###   ########.fr       */
+/*   Updated: 2019/10/03 18:57:43 by hgadacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@ int	ft_strnlen(char *str, char c)
 	return (j);
 }
 
+int	ft_affect(char **line, char **dest, int a)
+{
+	*line = (char*)malloc(sizeof(char) * (ft_strnlen(*dest, (*dest)[a])));
+	if (*line == NULL)
+		return (-1);
+	*line = ft_strncpy(*line, *dest, a);
+	*dest = ft_strsub(*dest, a + 1,  ft_strlenn(*dest, a));
+	return (1);
+}	
+
 int	get_next_line(const int fd, char **line)
 {
 	if (fd < 3 || fd > OPEN_MAX || line == NULL)
@@ -46,15 +56,13 @@ int	get_next_line(const int fd, char **line)
 		while (dest[i] != '\0')
 		{
 			if (dest[i] == '\n')
-			{
-				*line = (char*)malloc(sizeof(char) * (ft_strnlen(dest, dest[i])));
-				ft_strncpy(*line, dest, i);
-				printf("\033[31m%s\033[0m\n", *line);
-				dest = ft_strsub(dest, i, ft_strlenn(dest, i));
-				return (1);
-			}
+				return (ft_affect(line, &dest, i));
 			i++;
 		}
+	}
+	if (read_return == 0)
+	{
+		printf("%s\n", dest);
 	}
 	return (0);
 }

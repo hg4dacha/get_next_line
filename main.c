@@ -18,10 +18,10 @@ int	main(void)
 	char *exemple;
 	
 	fd = open("text.txt", O_RDONLY);
-	while ((get_next_line(fd, &exemple)) == 1)
+	while ((get_next_line(fd, &exemple)) > 0)
 	{
 		printf("\033[34m%s\033[0m\n", exemple);
-		//getchar();
+		getchar();
 	}
 	return 0;
 }

@@ -22,7 +22,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
-#include "/Users/hgadacha/Projets-42/libft_bis/libft.h"
+#include "./libft/libft.h"
 //#include "/home/gadacha/Projets-42/libft/libft.h"
 
 #define BUFF_SIZE 32
