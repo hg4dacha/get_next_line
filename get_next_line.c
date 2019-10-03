@@ -35,22 +35,22 @@ int	get_next_line(const int fd, char **line)
 		return (-1);
 
 	int					read_return;
-	static int			i = 0;
+	int					i;
 	static char			*dest = "";
 	char				stock[BUFF_SIZE + 1];
 	while ((read_return = read(fd, stock, BUFF_SIZE)) > 0)
 	{
 		stock[read_return] = '\0';
 		dest = ft_strjoin(dest, stock);
+		i = 0;
 		while (dest[i] != '\0')
 		{
 			if (dest[i] == '\n')
 			{
 				*line = (char*)malloc(sizeof(char) * (ft_strnlen(dest, dest[i])));
 				ft_strncpy(*line, dest, i);
-				printf(">>>>%s<<<<", *line);
+				printf("\033[31m%s\033[0m\n", *line);
 				dest = ft_strsub(dest, i, ft_strlenn(dest, i));
-				i++;
 				return (1);
 			}
 			i++;

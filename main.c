@@ -20,7 +20,7 @@ int	main(void)
 	fd = open("text.txt", O_RDONLY);
 	while ((get_next_line(fd, &exemple)) == 1)
 	{
-		printf("%s", exemple);
+		printf("\033[34m%s\033[0m\n", exemple);
 		//getchar();
 	}
 	return 0;
