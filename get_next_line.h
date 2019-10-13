@@ -6,7 +6,7 @@
 /*   By: hgadacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/15 11:25:07 by hgadacha          #+#    #+#             */
-/*   Updated: 2019/10/09 17:41:31 by hgadacha         ###   ########.fr       */
+/*   Updated: 2019/10/13 11:48:03 by hgadacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 # define GET_NEXT_LINE_H
 
 # include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include <sys/types.h>
 # include <sys/uio.h>
 # include <unistd.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
 # include "./libft/libft.h"
+# include <sys/stat.h>
+# include <stdio.h>
+# include <sys/types.h>
+# include <fcntl.h>
 
 # define BUFF_SIZE 32
 
