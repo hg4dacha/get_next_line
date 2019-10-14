@@ -6,7 +6,7 @@
 /*   By: hgadacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/15 11:24:23 by hgadacha          #+#    #+#             */
-/*   Updated: 2019/10/13 18:36:25 by hgadacha         ###   ########.fr       */
+/*   Updated: 2019/10/14 12:42:00 by hgadacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int						get_next_line(const int fd, char **line)
 	if (fd < 0 || fd > OPEN_MAX || line == NULL)
 		return (-1);
 	if (dest[fd] == NULL)
-		if (!(dest[fd] = (char*)malloc(sizeof(char))))
+		if (!(dest[fd] = ft_strnew(0)))
 			return (-1);
 	while ((read_return = read(fd, stock, BUFF_SIZE)) > 0)
 	{
