@@ -1,5 +1,0 @@
-Bonjour a tous ceci est un fichier texte qui me permettra de tester ma fonction "get_next_line".
-En effet je suis actuellement en plein dedans.
-J'aimerais approfondir mes connaissances en C pour pouvoir par la suite me diriger vers le devellopement web.
-J'ai encore besoin de passer par un certains nombre d'etapes avant de pouvoir acceder a cette branche.
-Cordialement la direction.

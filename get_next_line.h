@@ -6,7 +6,7 @@
 /*   By: hgadacha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/15 11:25:07 by hgadacha          #+#    #+#             */
-/*   Updated: 2019/10/13 11:48:03 by hgadacha         ###   ########.fr       */
+/*   Updated: 2019/10/15 18:05:09 by hgadacha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,8 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <unistd.h>
-# include <stdlib.h>
 # include <limits.h>
 # include "./libft/libft.h"
-# include <sys/stat.h>
-# include <stdio.h>
-# include <sys/types.h>
-# include <fcntl.h>
 
 # define BUFF_SIZE 32
 
